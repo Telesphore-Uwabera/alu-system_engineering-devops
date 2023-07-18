@@ -6,7 +6,7 @@ file { '/root/.ssh/config':
   owner  => 'root',
   group  => 'root',
   content => "
-Host your_server
+Host *
     IdentityFile ~/.ssh/school
     PasswordAuthentication no
 "
