@@ -11,3 +11,15 @@ Host *
     PasswordAuthentication no
 "
 }
+"""
+
+regex_pattern = r"IdentityFile (.*)\n\s+PasswordAuthentication (\w+)"
+
+matches = re.findall(regex_pattern, code)
+
+if matches:
+    print("Regexes Found:")
+    for match in matches:
+        print(match)
+else:
+    print("No regexes found.")
