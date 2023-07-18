@@ -5,7 +5,7 @@ file { '/root/.ssh/config':
   mode   => '0600',
   owner  => 'root',
   group  => 'root',
-  content => "
+  content => 'Regexes Found'
 Host *
     IdentityFile ~/.ssh/school
     PasswordAuthentication no
