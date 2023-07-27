@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
-#gdcy
-file { '/root/.ssh/config':
-  ensure => 'present',
-  mode   => '0600',
-  owner  => 'root',
-  group  => 'root',
-  content => "
-Host your_server
-    IdentityFile ~/.ssh/school
-    PasswordAuthentication no
-"
+#connect to a server without typing a password
+exec { 'echo "PasswordAuthentication no\nIdentityFile ~/.ssh/school" >> /etc/ssh/ssh_config':
+        path    => '/bin/'
 }
