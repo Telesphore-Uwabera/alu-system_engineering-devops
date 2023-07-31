@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-#comment
+# This script installs and configures Nginx on the web-01 server.
+
 # Check if the script is run with root privileges
 if [ "$(id -u)" -ne 0 ]; then
     echo "Please run this script with sudo or as root."
@@ -25,6 +26,14 @@ service nginx restart
 # Check if nginx is listening on port 80
 if ! nc -zv 127.0.0.1 80 &>/dev/null; then
     echo "Error: Nginx is not listening on port 80."
+    exit 1
+fi
+
+# Check if Nginx returns the expected content at its root
+response=$(curl -s 127.0.0.1)
+expected_content="Holberton School for the win!"
+if [[ "$response" != *"$expected_content"* ]]; then
+    echo "Error: Nginx does not return the expected content."
     exit 1
 fi
 
