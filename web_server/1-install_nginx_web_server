@@ -1,40 +1,7 @@
 #!/usr/bin/env bash
-# This script installs and configures Nginx on the web-01 server.
-
-# Check if the script is run with root privileges
-if [ "$(id -u)" -ne 0 ]; then
-    echo "Please run this script with sudo or as root."
-    exit 1
-fi
-
-# Update package list and install nginx
-apt-get update
-apt-get install -y nginx
-
-# Check if nginx is installed successfully
-if ! [ -x "$(command -v nginx)" ]; then
-    echo "Error: Nginx installation failed."
-    exit 1
-fi
-
-# Configure nginx to listen on port 80 and serve the desired content
-echo "Holberton School for the win!" | tee /var/www/html/index.html > /dev/null
-
-# Restart nginx using the service command (systemctl is not allowed)
-service nginx restart
-
-# Check if nginx is listening on port 80
-if ! nc -zv 127.0.0.1 80 &>/dev/null; then
-    echo "Error: Nginx is not listening on port 80."
-    exit 1
-fi
-
-# Check if Nginx returns the expected content at its root
-response=$(curl -s 127.0.0.1)
-expected_content="Holberton School for the win!"
-if [[ "$response" != *"$expected_content"* ]]; then
-    echo "Error: Nginx does not return the expected content."
-    exit 1
-fi
-
-echo "Nginx is installed on your web01 server and accepting traffic on port 80."
+#install nginx web server
+sudo apt update
+sudo apt install nginx -y
+sudo touch /var/www/html/index.html
+echo "Holberton School" | sudo tee /var/www/html/index.html
+sudo service nginx restart
