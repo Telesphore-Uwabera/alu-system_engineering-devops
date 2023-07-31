@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
-#install nginx web server
-sudo apt update
-sudo apt install nginx -y
-sudo touch /var/www/html/index.html
-echo "Holberton School" | sudo tee /var/www/html/index.html
+# This script installs and configures Nginx on the web-01 server.
+
+# Update package list and install nginx
+sudo apt-get update
+sudo apt-get install -y nginx
+
+# Configure nginx to listen on port 80 and serve the desired content
+echo "Holberton School for the win!" | sudo tee /var/www/html/index.html > /dev/null
+
+# Restart nginx using the service command (systemctl is not allowed)
 sudo service nginx restart
