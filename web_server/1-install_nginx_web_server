@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Update package list and install nginx
+apt-get update
+apt-get install -y nginx
+
+# Configure nginx to listen on port 80 and serve the desired content
+echo "Holberton School for the win!" | tee /var/www/html/index.html
+
+# Restart nginx using the service command (systemctl is not allowed)
+service nginx restart
+
