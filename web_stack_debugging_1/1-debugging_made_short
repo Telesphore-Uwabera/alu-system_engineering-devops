@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+# Replace port 8080 with port 80 in the Nginx configuration
 sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
-service nginx restart > /dev/null 2>&1
-[[ $(service nginx status) =~ "not running" ]] && echo " * nginx is not running"
+
+# Restart the Nginx service
+service nginx restart
