@@ -60,5 +60,3 @@ Modifying firewall rules can impact your server's security and accessibility. En
 
 This script is provided under the [MIT License](LICENSE).
 ```
-
-Remember to include the actual script (`ufw-configure.sh`) in your repository, and you can customize the README.md as needed.
