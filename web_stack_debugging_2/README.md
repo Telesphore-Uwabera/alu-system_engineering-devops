@@ -1,5 +1,5 @@
 
-# Bash Script README
+# Bash Script
 
 This repository contains two Bash scripts, each with its own purpose. Below, we describe each script and provide instructions on how to use them.
 
