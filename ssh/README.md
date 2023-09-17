@@ -1,5 +1,5 @@
 
-# Bash Script README
+# Bash Script
 
 This repository contains several Bash scripts for various tasks related to SSH and server configuration. Each script is described below:
 
